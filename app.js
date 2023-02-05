@@ -3,6 +3,10 @@ const app = express();
 const fs = require('fs');
 require('dotenv').config();
 
+app.get('/', (req, res) => {
+	res.send('Express on Vercel');
+});
+
 app.get('/search', (request, response) => {
 	const city = request.query.city;
 	const startDate = request.query.start_date;
