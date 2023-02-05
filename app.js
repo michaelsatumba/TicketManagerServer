@@ -22,6 +22,7 @@ app.get('/search', (request, response) => {
 			response.status(200).json(seatGeekData);
 		})
 		.catch(function (error) {
+			response.send('Error: ' + error);
 			response.status(500).send('Error: ' + error);
 		});
 });
