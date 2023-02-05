@@ -10,20 +10,20 @@ app.get('/', (req, res) => {
 app.get('/search', (request, response) => {
 	const city = request.query.city;
 	const startDate = request.query.start_date;
-	console.log('city', city);
-	console.log('startDate', startDate);
+	console.log('city:', city);
+	console.log('startDate:', startDate);
+
 	fetch(
 		`https://api.seatgeek.com/2/events?taxonomies.name=nba&venue.city=${city}&datetime_utc.gt=${startDate}&client_id=${process.env.CLIENT_ID}`
 	)
-		.then(function (seatGeekResponse) {
-			return seatGeekResponse.json();
-		})
-		.then(function (seatGeekData) {
+		.then((seatGeekResponse) => seatGeekResponse.json())
+		.then((seatGeekData) => {
+			console.log('seatGeekData:', seatGeekData);
 			response.status(200).json(seatGeekData);
 		})
-		.catch(function (error) {
+		.catch((error) => {
+			console.error('Error:', error);
 			response.send('Error: ' + error);
-			// response.status(500).send('Error: ' + error);
 		});
 });
 
