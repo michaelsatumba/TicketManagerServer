@@ -4,7 +4,7 @@ const fs = require('fs');
 require('dotenv').config();
 
 app.get('/', (req, res) => {
-	res.send('Express on Vercel');
+	res.send(process.env.CLIENT_ID);
 });
 
 app.get('/search', (request, response) => {
