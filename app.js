@@ -23,7 +23,7 @@ app.get('/search', (request, response) => {
 		})
 		.catch(function (error) {
 			response.send('Error: ' + error);
-			response.status(500).send('Error: ' + error);
+			// response.status(500).send('Error: ' + error);
 		});
 });
 
