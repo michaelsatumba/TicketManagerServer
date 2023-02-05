@@ -1,7 +1,10 @@
-const express = require('express');
+import express from 'express';
 const app = express();
-const fs = require('fs');
-require('dotenv').config();
+// import fs
+// require('dotenv').config();
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 app.get('/', (req, res) => {
 	res.json({ message: 'Hello World' });
