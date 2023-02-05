@@ -4,7 +4,7 @@ const fs = require('fs');
 require('dotenv').config();
 
 app.get('/', (req, res) => {
-	res.send(process.env.CLIENT_ID);
+	res.json({ message: 'Hello World' });
 });
 
 app.get('/search', (request, response) => {
