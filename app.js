@@ -23,30 +23,31 @@ const server = http.createServer(function (request, response) {
 				response.writeHead(500, { 'Content-Type': 'text/plain' });
 				response.end('Error', error);
 			});
-	} else {
-		let filePath = './public';
-		let contentType = 'text/html';
-
-		if (request.url.endsWith('.css')) {
-			filePath += request.url;
-			contentType = 'text/css';
-		} else if (request.url.endsWith('.js')) {
-			filePath += request.url;
-			contentType = 'text/javascript';
-		} else {
-			filePath += '/index.html';
-		}
-
-		fs.readFile(filePath, function (error, content) {
-			if (error) {
-				response.writeHead(500);
-				response.end();
-			} else {
-				response.writeHead(200, { 'Content-Type': contentType });
-				response.end(content, 'utf-8');
-			}
-		});
 	}
+	// else {
+	// 	let filePath = './public';
+	// 	let contentType = 'text/html';
+
+	// 	if (request.url.endsWith('.css')) {
+	// 		filePath += request.url;
+	// 		contentType = 'text/css';
+	// 	} else if (request.url.endsWith('.js')) {
+	// 		filePath += request.url;
+	// 		contentType = 'text/javascript';
+	// 	} else {
+	// 		filePath += '/index.html';
+	// 	}
+
+	// 	fs.readFile(filePath, function (error, content) {
+	// 		if (error) {
+	// 			response.writeHead(500);
+	// 			response.end();
+	// 		} else {
+	// 			response.writeHead(200, { 'Content-Type': contentType });
+	// 			response.end(content, 'utf-8');
+	// 		}
+	// 	});
+	// }
 });
 server.listen(process.env.PORT);
 console.log(`Server running at ${process.env.PORT}`);
