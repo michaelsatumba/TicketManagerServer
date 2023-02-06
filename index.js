@@ -18,7 +18,8 @@ app.get('/search', (request, response) => {
 	console.log('startDate:', startDate);
 
 	fetch(
-		`https://api.seatgeek.com/2/events?taxonomies.name=nba&venue.city=${city}&datetime_utc.gt=${startDate}&client_id=${process.env.CLIENT_ID}`
+		`https://api.seatgeek.com/2/events?taxonomies.name=nba&venue.city=${city}&datetime_utc.gt=${startDate}&client_id=${process.env.CLIENT_ID}`,
+		{ mode: 'cors' }
 	)
 		.then((seatGeekResponse) => seatGeekResponse.json())
 		.then((seatGeekData) => {
